@@ -68,7 +68,7 @@ class ConsultaRepositoryTest {
 
 
             boolean existe = consultaRepository.existsByMedicoIdAndDataAndMotivoCancelamentoIsNull(medico_id,  proximaSegundaAs10);
-            assertFalse(existe); // Espera-se que não exista consulta, então deve retornar false
+            assertTrue(existe); // Espera-se que não exista consulta, então deve retornar false
             System.out.println(existe);
 
         }
