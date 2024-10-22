@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  app:
+      build:  .
+      ports:
+        - "8090:8090" #8090local:8090docker conteiner
+      networks:
+        - my-network
+
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: wesley455478
+      MYSQL_USER: wesley
+      MYSQL_PASSWORD: wesley455478
+      MYSQL_DATABASE: vollmed_api
+    ports:
+      - "3307:3306"  # Use the standard MySQL port
+    networks:
+      - my-network
+    volumes:
+      - mysql-s-data:/var/lib/mysql
+
+networks:
+  my-network:
+    driver: bridge
+
+volumes:
+  mysql-s-data:
+
+    #docker-compose up --build
+    #docker-compose down
